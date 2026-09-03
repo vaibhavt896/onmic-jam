@@ -1,0 +1,42 @@
+{
+  "name": "onmic-jam",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "db:reset": "node scripts/db-reset.mjs",
+    "test:db": "sh scripts/db-test.sh",
+    "test:email": "node --env-file=.env.local scripts/test-email.mjs",
+    "test:unit": "node --test 'tests/unit/*.test.mjs'",
+    "test:api": "node --test --test-timeout=180000 'tests/api/*.test.mjs'",
+    "test:e2e": "playwright test",
+    "test": "npm run build && npm run test:db && npm run test:unit && npm run test:api && npm run test:e2e"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "next": "^15.1.0",
+    "pg": "^8.13.0",
+    "qrcode": "^1.5.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "resend": "^4.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/node": "^22.10.0",
+    "@types/pg": "^8.11.10",
+    "@types/qrcode": "^1.5.5",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.0"
+  }
+}
