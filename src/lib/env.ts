@@ -42,6 +42,7 @@ export const env = (() => {
     SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
     RESEND_API_KEY: process.env.RESEND_API_KEY || "",
     EMAIL_FROM: process.env.EMAIL_FROM || "",
+    SMS_WEBHOOK_SECRET: process.env.SMS_WEBHOOK_SECRET || "",
   };
 
   if (DRIVER === "pg") {
