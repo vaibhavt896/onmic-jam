@@ -222,7 +222,7 @@ function PayBlock({
           data-testid="submitted-note"
         >
           <p className="text-sm leading-relaxed">
-            Reference <span className="tnum font-semibold">{utr ? maskUtr(utr) : ""}</span> received.
+            Transaction ID <span className="tnum font-semibold">{utr ? maskUtr(utr) : ""}</span> received.
             We confirm on Saturday night — you&apos;ll get an email and this page turns active.
           </p>
           <button
@@ -297,7 +297,7 @@ function UtrForm({
     haptic(12);
     if (!cleanUtr(value)) {
       setError(
-        "A UPI reference number is 12 digits. Check the number on your payment success screen and try again.",
+        "A UPI transaction ID is 12 digits. Check the number on your payment success screen and try again.",
       );
       return;
     }
@@ -325,11 +325,11 @@ function UtrForm({
   return (
     <form onSubmit={submit} noValidate className="mt-6 border-t border-line pt-6">
       <p className="text-sm leading-relaxed text-text-2">
-        After paying, your UPI app shows a 12-digit reference number. Paste it here:
+        After paying, your UPI app shows a 12-digit transaction ID. Paste it here:
       </p>
       <input
         className="field tnum mt-3"
-        placeholder="12-digit UPI reference"
+        placeholder="12-digit UPI transaction ID"
         inputMode="numeric"
         maxLength={20}
         value={value}
@@ -357,7 +357,7 @@ function WhereIsTheReference() {
   return (
     <details className="mt-4 rounded-card border border-line bg-surface px-4">
       <summary className="press tap cursor-pointer py-3 text-sm font-semibold text-flare leading-[42px]">
-        Where do I find the reference number?
+        Where do I find the transaction ID?
       </summary>
       <ul className="flex flex-col gap-3 pb-4 text-[13px] leading-relaxed text-text-2">
         <li>

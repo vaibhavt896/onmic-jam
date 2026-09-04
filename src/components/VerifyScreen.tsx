@@ -49,7 +49,7 @@ export function VerifyScreen() {
       <h1 className="text-lg font-bold tracking-widest text-white uppercase">Verify payments</h1>
       <p className="mt-2 text-sm leading-relaxed text-muted">
         Open PhonePe / Paytm for Business → History → export or select all → copy. Paste it here.
-        Format does not matter — we only read 12-digit reference numbers.
+        Format does not matter — we only read 12-digit transaction IDs.
       </p>
 
       <textarea
@@ -95,7 +95,7 @@ export function VerifyScreen() {
               {` · ${result.confirmed.filter((c) => c.emailed).length} emailed`}
             </p>
             <p className="mt-1 text-xs text-dim">
-              {result.scanned} distinct reference numbers found in the paste.
+              {result.scanned} distinct transaction IDs found in the paste.
             </p>
             {result.confirmed.some((c) => !c.emailed) && (
               <RetryEmails count={result.confirmed.filter((c) => !c.emailed).length} />
@@ -104,7 +104,7 @@ export function VerifyScreen() {
 
           <Bucket
             tone="brand"
-            title={`${result.pending.length} submitted a reference we can't find`}
+            title={`${result.pending.length} submitted a transaction ID we can't find`}
             hint="Never auto-rejected — decide each one."
             rows={result.pending.map((p) => ({
               id: p.id,
@@ -216,7 +216,7 @@ function TotalCheck({ result }: { result: VerifyResult }) {
     return (
       <div className="rounded-xl border border-line bg-card p-4" data-testid="total-check">
         <p className="text-sm text-muted">
-          No amounts readable next to the references in this paste — the totals check is skipped.
+          No amounts readable next to the transaction IDs in this paste — the totals check is skipped.
         </p>
         <p className="mt-1 text-xs text-dim">
           Compare {rupees(total.matched * price)} against your UPI app&apos;s own total by hand:{" "}
@@ -259,7 +259,7 @@ function TotalCheck({ result }: { result: VerifyResult }) {
 
       {total.readable < total.matched && (
         <p className="mt-2 text-xs text-dim">
-          Amounts were readable for {total.readable} of {total.matched} matched references — the rest
+          Amounts were readable for {total.readable} of {total.matched} matched transaction IDs — the rest
           are not counted either way.
         </p>
       )}

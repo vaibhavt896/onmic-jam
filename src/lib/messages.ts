@@ -16,7 +16,7 @@ const CATALOG = {
   bad_utr: {
     status: 400,
     message:
-      "A UPI reference number is 12 digits. Check the number on your payment success screen and try again.",
+      "A UPI transaction ID is 12 digits. Check the number on your payment success screen and try again.",
   },
   bad_json: { status: 400, message: "We couldn't read that request. Please try again." },
   bad_reason: { status: 400, message: "Write a short reason — at least 3 characters. It goes in the audit log." },
@@ -40,7 +40,7 @@ const CATALOG = {
   utr_taken: {
     status: 409,
     message:
-      "That reference number is already registered against another person. If you think this is a mistake, message the organisers.",
+      "That transaction ID is already registered against another person. If you think this is a mistake, message the organisers.",
   },
   phone_taken: { status: 409, message: "Another attendee at this event already uses that phone number." },
   event_open: {
